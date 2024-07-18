@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.33">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body class="bg-gradient-to-l from-cyan-950 to-teal-950">
+
+    <div class="dropdown">
+        <select id="playWith" onchange="Player()">
+            <option value="0">Computer</option>
+            <option value="1">Friend</option>
+        </select>
+    </div>
+    
+    <div id="title" class="shell">
+        <h1 class="text">Tic Tac Toe</h1>   
+    </div>
+
+
+    <div id="board" class="shell">
+        <div class="cell" id="cell1"><span></span></div>
+        <div class="cell" id="cell2"><span></span></div>
+        <div class="cell" id="cell3"><span></span></div>
+        <div class="cell" id="cell4"><span></span></div>
+        <div class="cell" id="cell5"><span></span></div>
+        <div class="cell" id="cell6"><span></span></div>
+        <div class="cell" id="cell7"><span></span></div>
+        <div class="cell" id="cell8"><span></span></div>
+        <div class="cell" id="cell9"><span></span></div>
+    </div>
+
+    <div id="bottom" class="shell">
+        <h2 class="changing-text">Your turn</h2> <br>
+
+        <h2 class="result">Player X = 0 : Player Y = 0</h2>
+
+        <button id="restartBtn" class="restart" style="--clr:hsl(0, 77%, 51%);"><span>Restart</span></button>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="design.js"></script>
+</body>
+</html>

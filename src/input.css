@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply flex flex-col content-center items-center mt-36 sm:justify-evenly;
+}
+.dropdown{
+    position: relative;
+    width: 9em;
+    padding: 0.2em;
+    border-radius: 0 30px 0 30px;
+    border: 0.4rem solid hsl(54, 86%, 53%);
+    box-shadow: 2px 2px 50px 3px;
+    @apply bg-cyan-950 text-white text-6xl;
+}
+
+.dropdown select{
+    border-radius: 0 30px 0 30px;
+    padding: 0.2em;
+    text-shadow: 0px 0px 20px yellow, 0px 0px 40px yellow;
+    @apply bg-cyan-950 text-yellow-200 w-full rounded-md;
+}
+.shell{
+    @apply mt-10 mb-7 text-center;
+}
+.text{
+    @apply text-slate-100 text-8xl;
+}
+
+.fa-x{
+    position: relative;
+    font-size: 17rem;
+    text-shadow: 0px 0px 20px hsl(300, 94%, 34%), 0px 0px 40px hsl(300, 81%, 58%);
+    @apply text-purple-500 hover:text-purple-600;
+}
+
+.fa-0{
+    position: relative;
+    font-size: 17rem;
+    text-shadow: 0px 0px 20px hsl(150, 94%, 34%), 0px 0px 40px hsl(150, 81%, 58%);
+    @apply text-green-400 hover:text-green-500;
+    
+}
+
+.fa-x:hover, .fa-0:hover{
+    transition:ease-in-out;
+}
+
+
+.changing-text{
+    @apply text-slate-50 text-7xl;
+}
+.result{
+    @apply text-white text-6xl;
+}
+
+.restart{
+    @apply text-6xl mt-20 uppercase;
+    background-color: rgb(12, 75, 75);
+    color: rgb(131, 131, 131);
+    padding: 2.4rem;
+    border-radius: 50px;
+    transition: 0.5s;
+    overflow: hidden;
+    position: relative;
+}
+.restart:hover{
+    color: var(--clr);
+    text-shadow: 0 0 15px var(--clr),
+    0 0 40px var(--clr);
+}
+.restart span{
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.2em;
+}
+.restart::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(var(--clr),transparent, transparent);
+    width: 400px;
+    height: 400px;
+    top: var(--y);
+    left: var(--x);
+    opacity: 0;
+    transition: 0.5s, top 0s, left 0s;
+}
+.restart:hover::before{
+    opacity: 1;
+}
+.restart::after{
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: rgba(17, 63, 63, 0.8);
+    border-radius: 50px;
+}
+#board{
+    width: 1240px;
+    height: 1240px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.cell{
+    position: relative;
+    border: solid 2px white;
+    width: 400px;
+    height: 400px;
+    @apply flex items-center justify-center;
+}
+
+.cell::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a), hsl(300, 77%, 51%), hsl(275, 77%, 51%), hsl(240, 77%, 51%), hsl(120, 77%, 51%), hsl(60, 77%, 51%), hsl(0, 77%, 51%));
+    animation: rotating 4s linear infinite;
+}
+
+.cell::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a), hsl(300, 77%, 51%), hsl(275, 77%, 51%), hsl(240, 77%, 51%), hsl(120, 77%, 51%), hsl(60, 77%, 51%), hsl(0, 77%, 51%));
+    animation: rotating 4s linear infinite;
+    filter: blur(40px);
+    opacity: 0.75;
+}
+
+.cell span{
+    position: absolute;
+    inset: 4px;
+    background: hsl(180, 56%, 12%);
+    z-index: 1;
+}
+
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes rotating {
+    0%{
+        --a: 0deg;
+    }
+    100%{
+        --a: 360deg;
+    }
+}
