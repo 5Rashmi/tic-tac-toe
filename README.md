@@ -1,4 +1,4 @@
-![Tic Tac Toe](https://img.shields.io/badge/Web%20Code-purple?style=for-the-badge)
+![Tic Tac Toe](https://img.shields.io/badge/Tic%20Tac%20Toe-purple?style=for-the-badge)
 
 #### ❗ This project is currently under development.
 ### About Tic Tac Toe
