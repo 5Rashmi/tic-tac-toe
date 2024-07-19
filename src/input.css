@@ -32,6 +32,7 @@ body{
 .fa-x{
     position: relative;
     font-size: 17rem;
+    bottom: -60px;
     text-shadow: 0px 0px 20px hsl(300, 94%, 34%), 0px 0px 40px hsl(300, 81%, 58%);
     @apply text-purple-500 hover:text-purple-600;
 }
@@ -39,6 +40,7 @@ body{
 .fa-0{
     position: relative;
     font-size: 17rem;
+    bottom: -60px;
     text-shadow: 0px 0px 20px hsl(150, 94%, 34%), 0px 0px 40px hsl(150, 81%, 58%);
     @apply text-green-400 hover:text-green-500;
     
