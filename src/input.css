@@ -4,34 +4,35 @@
 
 
 body{
-    @apply flex flex-col content-center items-center mt-36 sm:justify-evenly;
+    @apply flex flex-col content-center items-center sm:justify-evenly;
 }
 .dropdown{
     position: relative;
-    width: 9em;
-    padding: 0.2em;
-    border-radius: 0 30px 0 30px;
-    border: 0.4rem solid hsl(54, 86%, 53%);
-    box-shadow: 2px 2px 50px 3px;
-    @apply bg-cyan-950 text-white text-6xl;
+    width: 8em;
+    padding: 2px 10px 2px 10px;
+    border-radius: 0 25px 0 25px;
+    border: 2px solid hsl(54, 86%, 53%);
+    box-shadow: 2px 2px 15px 2px;
+    font-size: 17px;
+    @apply bg-cyan-950 text-white mt-10;
 }
 
 .dropdown select{
-    border-radius: 0 30px 0 30px;
+    border-radius: 0 100% 0 100%;
     padding: 0.2em;
-    text-shadow: 0px 0px 20px yellow, 0px 0px 40px yellow;
+    text-shadow: 0px 0px 5px yellow, 0px 0px 15px yellow;
     @apply bg-cyan-950 text-yellow-200 w-full rounded-md;
 }
 .shell{
-    @apply mt-10 mb-7 text-center;
+    @apply mt-2 mb-2 text-center justify-center;
 }
 .text{
-    @apply text-slate-100 text-8xl;
+    @apply text-slate-100 text-2xl mb-2;
 }
 
 .fa-x{
     position: relative;
-    font-size: 17rem;
+    font-size: 4rem;
     bottom: -60px;
     text-shadow: 0px 0px 20px hsl(300, 94%, 34%), 0px 0px 40px hsl(300, 81%, 58%);
     @apply text-purple-500 hover:text-purple-600;
@@ -39,7 +40,7 @@ body{
 
 .fa-0{
     position: relative;
-    font-size: 17rem;
+    font-size: 4rem;
     bottom: -60px;
     text-shadow: 0px 0px 20px hsl(150, 94%, 34%), 0px 0px 40px hsl(150, 81%, 58%);
     @apply text-green-400 hover:text-green-500;
@@ -49,20 +50,20 @@ body{
 .fa-x:hover, .fa-0:hover{
     transition:ease-in-out;
 }
-
-
 .changing-text{
-    @apply text-slate-50 text-7xl;
+    @apply text-slate-50 text-2xl mt-2;
 }
 .result{
-    @apply text-white text-6xl;
+    @apply text-white;
+    font-size: 16px
 }
 
 .restart{
-    @apply text-6xl mt-20 uppercase;
+    @apply mt-4 uppercase;
+    font-size: 16px;
     background-color: rgb(12, 75, 75);
     color: rgb(131, 131, 131);
-    padding: 2.4rem;
+    padding: 6px 7px 6px 7px;
     border-radius: 50px;
     transition: 0.5s;
     overflow: hidden;
@@ -76,15 +77,15 @@ body{
 .restart span{
     position: relative;
     z-index: 1;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 .restart::before{
     content: '';
     position: absolute;
     transform: translate(-50%, -50%);
     background: radial-gradient(var(--clr),transparent, transparent);
-    width: 400px;
-    height: 400px;
+    width: 100px;
+    height: 100px;
     top: var(--y);
     left: var(--x);
     opacity: 0;
@@ -96,23 +97,23 @@ body{
 .restart::after{
     content: '';
     position: absolute;
-    inset: 6px;
+    inset: 2px;
     background: rgba(17, 63, 63, 0.8);
     border-radius: 50px;
 }
 #board{
-    width: 1240px;
-    height: 1240px;
+    width: 400px;
+    height: 300px;
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 2px;
 }
 
 .cell{
     position: relative;
-    border: solid 2px white;
-    width: 400px;
-    height: 400px;
+    border: solid 1px white;
+    width: 100px;
+    height: 100px;
     @apply flex items-center justify-center;
 }
 
@@ -136,7 +137,7 @@ body{
 
 .cell span{
     position: absolute;
-    inset: 4px;
+    inset: 1px;
     background: hsl(180, 56%, 12%);
     z-index: 1;
 }

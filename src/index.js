@@ -19,6 +19,7 @@ const tic_tac_toe = {
     gamover: false,
     playWith: "0",
     xTurn: true,
+    computerSymbol: null,
 
     init: function(){
         this.winning_seqs = [
@@ -40,18 +41,16 @@ const tic_tac_toe = {
             cell.addEventListener("click", () => this.handleCellClick(cell));
         });
 
-        this.player();
+        this.restart();
     },
 
     player: function() {
         this.playWith = document.getElementById("playWith").value;
-        
+        this.restart();
         if( this.playWith === "0"){
             console.log("selected");
-            this.restart();
             this.computer();
         } else if(this.playWith === "1"){
-            this.restart();
             this.friend();
         }
     },
@@ -66,17 +65,108 @@ const tic_tac_toe = {
                 this.o();
             }
         }
+        return message();
+    },
+
+    random: function(){
+        let randomNumber = Math.random();
+        if ( randomNumber < 0.5){
+            this.computerSymbol = 'X';
+            this.changingTxt.innerHTML = `Computer is X. Your turn.`;
+            this.xTurn = true;
+        }else{
+            this.computerSymbol = 'O';
+            this.changingTxt.innerHTML = `Computer is O. Your turn.`;
+            this.xTurn = false;
+        }
+        if (this.computerSymbol === 'X' && !this.xTurn || this.computerSymbol === 'O' && this.xTurn){
+            this.computerMove();
+        }
+    },
+
+    computerMove: function(){
+        let availableMoves = this.getAvailableMoves();
+        let move = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+        this.makeMove(move, this.computerSymbol);
+        this.checkGameStatus();
+    },
+
+    getAvailableMoves: function(){
+        let availableMoves = [];
+        for(let i = 0; i< this.cells.length; i++){
+            if (!this.cells[i].querySelector('span').firstChild){
+                availableMoves.push(i);
+            }
+        }
+        return availableMoves;
+    },
+
+    makeMove: function(position, symbol){
+        if (symbol === 'X'){
+            this.x(this.cells[position]);
+        }else if(symbol === 'O'){
+            this.o(this.cells[position]);
+        }
+        this.xTurn = (symbol === 'X');
+    },
+
+    checkGameStatus: function(){
+        //Logic to check for win, tie, or continue game
+        this.win = this.checkWin();
+        this.tie = this.checkTie();
+        if(this.win || this.tie){
+            this.game_is_over();
+        }
+    },
+
+    message: function(){
+        if(this.win){
+            return `Game over! ${this.computerSymbol} Wins!`;
+        }else if(this.tie){
+            return `Game Over! It's a Tie!`;
+        }else{
+            return "Game is ongoing...";
+        }
     },
 
     friend: function(){
         console.log("friend");
-        if(this.xTurn){
+        for (let i = 0; i<this.cells.length; i++)
+        {
+            if(this.xTurn){
             this.x();
             this.changingTxt.innerHTML = `Player O's turn`;
-        } else{
+            } else{
             this.o();
             this.changingTxt.innerHTML = `Player X's turn`;
+            }
         }
+        return message();
+    },
+
+    checkWin: function(){
+        let winningSymbol = null;
+        for (let seq of this.winning_seqs){
+            let symbols = seq.map(cell => cell.querySelector('span').firstChild ? cell.querySelector('span').firstChild.classList[1] : null);
+            if (symbols.every(symbol => symbol && symbol === symbols[0])){
+                winningSymbol = symbols[0];
+                break;
+            }
+        }
+        if(winningSymbol){
+            this.changingTxt.innerHTML = `Player ${winningSymbol === 'fa-x' ? 'X' : 'O'} wins!`;
+            this.game_is_over();
+        }
+        return winningSymbol;
+    },
+
+    checkTie: function(){
+        if(this.is_game_over() && !this.checkWin()){
+            this.resultDisplay.innerHTML = "It's a tie!";
+            this.game_is_over();
+            return true;
+        }
+        return false;
     },
 
     x: function(cell){
@@ -93,24 +183,13 @@ const tic_tac_toe = {
         this.xTurn = true;
     },
 
-    random: function(){
-        let randomNumber = Math.random();
-        if ( randomNumber < 0.5){
-            this.computer();
-            this.changingTxt.innerHTML = `Computer's turn`;
-        }else{
-            this.person();
-            this.changingTxt.innerHTML = `Your turn`;
-        }
-    },
-
     game_is_over: function(){
         this.gamover = true;
         console.log('Game Over');
     },
 
     is_game_over: function(){
-        return !this.cells.some(cell => !cell.firstChild);
+        return !this.cells.some(cell => !cell.querySelector('span').firstChild);
     },
 
     restart: function(){
@@ -134,8 +213,8 @@ const tic_tac_toe = {
         } else {
             this.o(cell);
         }
-
-
+        this.checkWin();
+        this.checkTie();
     }
 
 };
