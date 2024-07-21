@@ -220,3 +220,25 @@ const tic_tac_toe = {
 };
 
 tic_tac_toe.init();
+
+/*
+checkWin(currentPlayer){
+    const classToCheck = currentPlayer === this.player[0] ? 'fa-x' : 'fa-0';
+    const playerMoves = currentPlayer === this.player[0] ? this.xClick : this.oClick;
+
+    for(let i = 0; i < this.winning_combinations.length; i++){
+        const [a, b, c] = this.winning_combinations[i];
+
+        if (playerMoves.includes(a) && playerMoves.includes(b) && playerMoves.includes(c)) {
+        this.changingTxt.textContent = `${currentPlayer} won!`;
+        return true;
+    }
+    }
+    return false; // No win
+},
+
+
+if (this.checkWin(this.currentPlayer)){
+            return;
+        }
+*/

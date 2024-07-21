@@ -10,17 +10,11 @@ const tic_tac_toe = {
     Xpoints: [],
     Opoints: [],
 
-    cells: [
-        document.getElementById("cell1"),
-        document.getElementById("cell2"),
-        document.getElementById("cell3"),
-        document.getElementById("cell4"),
-        document.getElementById("cell5"),
-        document.getElementById("cell6"),
-        document.getElementById("cell7"),
-        document.getElementById("cell8"),
-        document.getElementById("cell9")
-    ],
+    xClick: [],
+    oClick: [],
+    gameover: false,
+
+    cells: Array.from(document.querySelectorAll(".cell")),
 
     init: function(){
         this.winning_combinations = [
@@ -55,17 +49,28 @@ const tic_tac_toe = {
     },
 
     handleCellClick: function(cell){
-        console.log('click');
-
-        if(cell.querySelector('span').textContent !== '') return;
+        if(this.gameover) return;
+        const cellIndex = this.cells.indexOf(cell);
         
         if(this.currentPlayer === this.player[0]){
             this.x(cell);
+            this.xClick.push(cellIndex);
+            if (this.checkWin(this.xClick)) {
+                console.log('Player X wins!');
+                this.changingTxt.textContent = `X wins!`;
+                this.endGame();
+                return;
+            }
         }else if(this.currentPlayer === this.player[1]){
             this.o(cell);
+            this.oClick.push(cellIndex);
+            if (this.checkWin(this.oClick)) {
+                console.log('Player O wins!');
+                this.changingTxt.textContent = `O wins!`;
+                this.endGame();
+                return;
+            }
         }
-
-        
     },
 
     x: function(cell){
@@ -74,6 +79,7 @@ const tic_tac_toe = {
         let i = document.createElement("i");
         i.classList.add("fa","fa-x");
         cell.querySelector('span').appendChild(i);
+        if(this.gameover) return;
         this.currentPlayer = this.player[1];
     },
 
@@ -83,9 +89,16 @@ const tic_tac_toe = {
         let i = document.createElement("i");
         i.classList.add("fa","fa-0");
         cell.querySelector('span').appendChild(i);
+        if(this.gameover) return;
         this.currentPlayer = this.player[0];
     },
 
+    checkWin: function(moves){
+        return this.winning_combinations.some(combination => 
+            combination.every(index => moves.includes(index))
+        );
+    },
+    
     computerPlay: function(){
 
     },
@@ -107,14 +120,38 @@ const tic_tac_toe = {
         }
     },
 
+    endGame: function() {
+        this.gameOver = true; // Set the game over flag
+        this.disableClickEvents();
+    },
+
+    disableClickEvents: function() {
+        this.cells.forEach(cell => {
+            cell.style.pointerEvents = 'none';
+        });
+    },
+
+    enableClickEvents: function(){
+        this.cells.forEach(cell => {
+            cell.style.pointerEvents = 'auto';
+        });
+    },
+
     restart: function(){
+        this.enableClickEvents();
+        this.xClick = [];
+        this.oClick = [];
+        this.gameOver = false;
         console.log('restart');
-        for(let i =0;i<this.cells.length; i++){
-            let span = this.cells[i].querySelector('span');
-            if (span) {
-                span.textContent = '';
+        this.cells.forEach(cell => {
+            const span = cell.querySelector('span');
+            if(span){
+                const i = span.querySelector('i');
+                if(i){
+                    span.removeChild(i);
+                }
             }
-        }
+           });
         this.changingTxt.textContent = `X's turn!`;
         this.currentPlayer = this.player[0];
     }
