@@ -50,6 +50,11 @@ const tic_tac_toe = {
 
     handleCellClick: function(cell){
         if(this.gameover) return;
+
+        if (cell.querySelector('span').querySelector('i')) {
+            return; // Do nothing if the cell already has an element
+        }
+
         const cellIndex = this.cells.indexOf(cell);
         
         if(this.currentPlayer === this.player[0]){
@@ -71,6 +76,8 @@ const tic_tac_toe = {
                 return;
             }
         }
+
+        this.checkTie();
     },
 
     x: function(cell){
@@ -98,6 +105,19 @@ const tic_tac_toe = {
             combination.every(index => moves.includes(index))
         );
     },
+
+    checkTie: function(){
+        const allCellsFilled = this.cells.every(cell =>
+            cell.querySelector('span').querySelector('i') !== null
+        );
+        const xHasWon = this.checkWin(this.xClick);
+        const oHasWon = this.checkWin(this.oClick);
+
+        if(allCellsFilled && !xHasWon && !oHasWon){
+            this.changingTxt.textContent = `Tie!`;
+            this.endGame();
+        }
+    },
     
     computerPlay: function(){
 
@@ -116,7 +136,7 @@ const tic_tac_toe = {
         }else if(this.playWith == '1'){
             this.restart();
             console.log('1');
-            this.friend();
+            this.handleCellClick();
         }
     },
 
