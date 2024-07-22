@@ -1,8 +1,7 @@
 ![Tic Tac Toe](https://img.shields.io/badge/Tic%20Tac%20Toe-purple?style=for-the-badge)
 
-<div style="border: 2px solid #7D3C98; padding: 10px; border-radius: 5px; background-color: #F4ECF7; color: #7D3C98;">
-  <strong>Important:</strong> This project is currently under development.
-</div>
+> [!IMPORTANT]  
+> This project is currently under development.
 
 ### About Tic Tac Toe
 
