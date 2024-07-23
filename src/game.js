@@ -3,7 +3,6 @@ const tic_tac_toe = {
   player: ["X", "O"],
   currentPlayer: null,
   changingTxt: document.querySelector(".changing-text"),
-  result: document.querySelector(".result"),
   restartBtn: document.getElementById("restartBtn"),
   playWith: "0",
 
