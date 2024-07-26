@@ -579,7 +579,7 @@ body {
   align-items: center;
 }
 
-@media (min-width: 180px) {
+@media (min-width: 80px) {
   body {
     display: flex;
     height: 100vh;
@@ -845,9 +845,9 @@ body {
   }
 }
 
-@media (min-width: 180px) {
+@media (min-width: 80px) {
   .sm\:zoom-90 {
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
 }
 

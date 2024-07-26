@@ -4,7 +4,7 @@
 
 @layer utilities {
     .zoom-90 {
-      transform: scale(0.9);
+      transform: scale(0.92);
     }
     .zoom-100 {
       transform: scale(1);
