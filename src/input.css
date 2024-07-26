@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
 
 body{
-    @apply flex flex-col content-center items-center sm:justify-evenly;
+    @apply flex flex-col content-center items-center sm:flex sm:items-center sm:justify-center md:flex md:items-center md:justify-center lg:flex lg:items-center lg:justify-center;
 }
 .dropdown{
     position: relative;
@@ -20,6 +20,9 @@ body{
 
 .dropdown select{
     border-radius: 0 100% 0 100%;
+    font-family: "Playwrite US Modern", cursive;
+    font-weight: 200;
+    font-size: 14px;
     padding: 0.2em;
     text-shadow: 0px 0px 5px yellow, 0px 0px 15px yellow;
     @apply bg-cyan-950 text-yellow-200 w-full rounded-md;
@@ -57,6 +60,8 @@ body{
 }
 .changing-text{
     @apply text-slate-50 text-2xl mt-2;
+    font-family: "Playwrite US Modern", cursive;
+    text-shadow: 0px 0px 5px yellow, 0px 0px 15px yellow;
 }
 .result{
     @apply text-white;
@@ -170,5 +175,25 @@ body{
     to{
         color: gray;
         text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+    }
+}
+
+@keyframes confetti {
+    0% {
+        opacity: 0;
+        transform: translateY(0%) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    35% {
+        transform: translateY(-800%) rotate(270deg);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(2000%) rotate(1440deg);
     }
 }

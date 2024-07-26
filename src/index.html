@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.33">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.33" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="./output.css">
-</head>
-<body class="bg-gradient-to-l from-cyan-950 to-teal-950">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  
+  <body class="bg-gradient-to-l from-cyan-950 to-teal-950">
     <div class="dropdown">
-        <select id="playWith">
-            <option value="0">Computer</option>
-            <option value="1">Friend</option>
-        </select>
-    </div>
-    
-    <div id="title" class="shell">
-        <h1 class="text">Tic Tac Toe</h1>   
+      <select id="playWith">
+        <option value="0">Computer</option>
+        <option value="1">Friend</option>
+      </select>
     </div>
 
+    <div id="title" class="shell">
+      <h1 class="text">Tic Tac Toe</h1>
+    </div>
 
     <div id="board" class="shell">
-        <div class="cell" data-key="1"><span></span></div>
-        <div class="cell" data-key="2"><span></span></div>
-        <div class="cell" data-key="3"><span></span></div>
-        <div class="cell" data-key="4"><span></span></div>
-        <div class="cell" data-key="5"><span></span></div>
-        <div class="cell" data-key="6"><span></span></div>
-        <div class="cell" data-key="7"><span></span></div>
-        <div class="cell" data-key="8"><span></span></div>
-        <div class="cell" data-key="9"><span></span></div>
+      <div class="cell" data-key="1"><span></span></div>
+      <div class="cell" data-key="2"><span></span></div>
+      <div class="cell" data-key="3"><span></span></div>
+      <div class="cell" data-key="4"><span></span></div>
+      <div class="cell" data-key="5"><span></span></div>
+      <div class="cell" data-key="6"><span></span></div>
+      <div class="cell" data-key="7"><span></span></div>
+      <div class="cell" data-key="8"><span></span></div>
+      <div class="cell" data-key="9"><span></span></div>
     </div>
 
     <div id="bottom" class="shell">
-        <h2 class="changing-text"></h2> <br>
+      <h2 class="changing-text"></h2>
+      <br />
 
-        <button id="restartBtn" class="restart" style="--clr:hsl(0, 77%, 51%);"><span>Restart</span></button>
+      <button id="restartBtn" class="restart" style="--clr: hsl(0, 77%, 51%)">
+        <span>Restart</span>
+      </button>
     </div>
 
     <script src="game.js"></script>
     <script src="design.js"></script>
-</body>
+  </body>
 </html>

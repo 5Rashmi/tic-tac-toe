@@ -581,7 +581,25 @@ body {
 
 @media (min-width: 640px) {
   body {
-    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -602,6 +620,9 @@ body {
 
 .dropdown select{
   border-radius: 0 100% 0 100%;
+  font-family: "Playwrite US Modern", cursive;
+  font-weight: 200;
+  font-size: 14px;
   padding: 0.2em;
   text-shadow: 0px 0px 5px yellow, 0px 0px 15px yellow;
   width: 100%;
@@ -665,6 +686,8 @@ body {
   line-height: 2rem;
   --tw-text-opacity: 1;
   color: rgb(248 250 252 / var(--tw-text-opacity));
+  font-family: "Playwrite US Modern", cursive;
+  text-shadow: 0px 0px 5px yellow, 0px 0px 15px yellow;
 }
 
 .result {
@@ -793,5 +816,29 @@ body {
   to{
     color: gray;
     text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    opacity: 0;
+    transform: translateY(0%) rotate(0deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  35% {
+    transform: translateY(-800%) rotate(270deg);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(2000%) rotate(1440deg);
   }
 }
