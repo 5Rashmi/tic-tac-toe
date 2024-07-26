@@ -1,8 +1,5 @@
 ![Tic Tac Toe](https://img.shields.io/badge/Tic%20Tac%20Toe-purple?style=for-the-badge)
 
-> [!IMPORTANT]  
-> This project is currently under development.
-
 ### About Tic Tac Toe
 
 This project is made using HTML, CSS, Tailwind CSS & JS. This is a simple Tic Tac Toe game but it has some advanced animations.
