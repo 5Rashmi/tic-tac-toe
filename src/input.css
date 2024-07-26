@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+
 @layer utilities {
     .zoom-90 {
       transform: scale(0.92);
@@ -12,11 +14,10 @@
     .zoom-110 {
       transform: scale(1.1);
     }
-  }
-@import url('https://fonts.googleapis.com/css?family=Codystar:300&display=swap');
+}
 
 body{
-    @apply flex flex-col content-center items-center sm:flex sm:items-center sm:justify-center sm:h-screen md:flex md:items-center md:justify-center md:h-screen lg:flex lg:items-center lg:justify-center lg:h-screen;
+    @apply flex flex-col content-center items-center sm:text-sm sm:p-2 sm:flex sm:items-center sm:justify-center sm:h-screen md:flex md:items-center md:justify-center md:h-screen lg:flex lg:items-center lg:justify-center lg:h-screen;
 }
 .dropdown{
     position: relative;
